@@ -19,4 +19,4 @@ use prod_schema;
 create table products (id int NOT NULL AUTO_INCREMENT, name varchar(255), quantity varchar(255), price varchar(255), PRIMARY KEY (id));
 exit"
 sudo sed -i "s/.*bind-address.*/bind-address = 0.0.0.0/" /etc/mysql/mysql.conf.d/mysqld.cnf
-sudo systemctl status mysql.service
+sudo systemctl restart mysql
