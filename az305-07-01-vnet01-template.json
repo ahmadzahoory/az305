@@ -4,14 +4,14 @@
   "parameters": {
     "vnetName": {
       "type": "string",
-      "defaultValue": "VNet01",
+      "defaultValue": "vnet-01",
       "metadata": {
         "description": "VNet name"
       }
     },
     "vnetAddressPrefix": {
       "type": "string",
-      "defaultValue": "10.0.1.0/23",
+      "defaultValue": "10.1.0.0/23",
       "metadata": {
         "description": "Address prefix"
       }
@@ -20,7 +20,7 @@
       "type": "array",
       "defaultValue": [
         {
-          "name": "Subnet1",
+          "name": "subnet1",
           "addressPrefix": "10.1.0.0/24"
         }
       ]
