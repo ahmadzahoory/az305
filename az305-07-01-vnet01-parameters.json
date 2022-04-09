@@ -11,11 +11,12 @@
       "subnets": {
         "value": [
           {
-            "name": "subnet1",
+            "name": "websubnet",
             "addressPrefix": "10.1.0.0/24"
           }
         ]
       }
     }
   }
+  
   
