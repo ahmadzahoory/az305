@@ -20,7 +20,7 @@
       "type": "array",
       "defaultValue": [
         {
-          "name": "subnet1",
+          "name": "websubnet",
           "addressPrefix": "10.1.0.0/24"
         }
       ]
@@ -31,21 +31,7 @@
       "metadata": {
         "description": "Location for all resources."
       }
-    },
-    "enableServiceEndpoints": {
-      "type": "bool",
-      "defaultValue": false,
-      "metadata": {
-        "description": "Pass this value as true for enabling service endpoints on the vnet."
-      }
     }
-  },
-  "variables": {
-    "serviceEndpoints": [
-      {
-        "service": "Microsoft.Storage"
-      }
-    ]
   },
   "resources": [
     {
@@ -66,8 +52,7 @@
             "input": {
               "name": "[parameters('subnets')[copyIndex('subnets')].name]",
               "properties": {
-                "addressPrefix": "[parameters('subnets')[copyIndex('subnets')].addressPrefix]",
-                "serviceEndpoints": "[if(parameters('enableServiceEndpoints'),variables('serviceEndpoints'),json('null'))]"
+                "addressPrefix": "[parameters('subnets')[copyIndex('subnets')].addressPrefix]"
               }
             }
           }
