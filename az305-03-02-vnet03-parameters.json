@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "vnetName": {
+        "value": "vnet-03"
+      },
+      "vnetAddressPrefix": {
+        "value": "10.3.0.0/23"
+      },
+      "subnets": {
+        "value": [
+          {
+            "name": "websubnet",
+            "addressPrefix": "10.3.0.0/24"
+          }
+        ]
+      }
+    }
+  }
+  
