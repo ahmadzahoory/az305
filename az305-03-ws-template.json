@@ -86,7 +86,7 @@
     },
     "subnet0Name": {
       "type": "string",
-      "defaultValue": "subnet0",
+      "defaultValue": "wssubnet",
       "metadata": {
         "description": "VNet first subnet name"
       }
