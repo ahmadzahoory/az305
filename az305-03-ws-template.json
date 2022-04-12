@@ -44,7 +44,7 @@
     },
     "imageOffer": {
       "type": "string",
-      "defaultValue": "Windows-10,
+      "defaultValue": "Windows-10",
       "metadata": {
         "description": "Image Offer"
       }
