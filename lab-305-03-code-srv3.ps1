@@ -10,8 +10,8 @@ install-windowsfeature web-mgmt-tools
 # Download the files for our web application.
 Set-Location -Path C:\inetpub\wwwroot
 $shell_app = new-object -com shell.application
-(New-Object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/ahmadzahoory/az305/master/lab-305-02-code-srv3.zip", (Get-Location).Path + "\lab-305-02-code-srv3.zip")
-$zipfile = $shell_app.Namespace((Get-Location).Path + "\lab-305-02-code-srv3.zip")
+(New-Object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/ahmadzahoory/az305/master/lab-305-03-code-srv3.zip", (Get-Location).Path + "\lab-305-03-code-srv3.zip")
+$zipfile = $shell_app.Namespace((Get-Location).Path + "\lab-305-03-code-srv3.zip")
 $destination = $shell_app.Namespace((Get-Location).Path)
 $destination.copyHere($zipfile.items())
 
