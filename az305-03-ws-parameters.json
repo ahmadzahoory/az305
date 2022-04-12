@@ -36,7 +36,7 @@
             "value": "az-305-userws-rg"
         },
         "subnet0Name": {
-            "value": "wssubnet"
+            "value": "subnetuserws"
         },
         "subnet0Prefix": {
             "value": "10.0.0.0/24"
