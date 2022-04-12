@@ -86,7 +86,7 @@
     },
     "subnet0Name": {
       "type": "string",
-      "defaultValue": "subnetuserws",
+      "defaultValue": "subnet0",
       "metadata": {
         "description": "VNet first subnet name"
       }
@@ -100,7 +100,7 @@
     },
     "nsgName": {
       "type": "string",
-      "defaultValue": "userws-nsg",
+      "defaultValue": "userws-nsg01",
       "metadata": {
         "description": "Network security group name"
       }
