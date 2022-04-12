@@ -164,7 +164,7 @@
                             "subnet": {
                                 "id": "[variables('subnetRef')]"
                             },
-							"privateIPAllocationMethod": "Dynamic"
+				"privateIPAllocationMethod": "Dynamic"
                         }
                             
                     }
