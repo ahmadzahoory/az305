@@ -27,7 +27,7 @@
             "value": "Premium_LRS"
         },
         "publisher": {
-            "value": "MicrosoftWindowsServer""
+            "value": "MicrosoftWindowsServer"
         },
         "offer": {
             "value": "WindowsServer"
