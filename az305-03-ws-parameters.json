@@ -9,10 +9,10 @@
             "value": "Lab@password"
         },
         "vmNamePrefix": {
-            "value": "clientws"
+            "value": "userws"
         },
         "nicNamePrefix": {
-            "value": "clientws-nic"
+            "value": "userws-nic"
         },
         "imagePublisher": {
             "value": "MicrosoftWindowsDesktop"
@@ -27,16 +27,16 @@
             "value": "Standard_B2ms"
         },
         "virtualNetworkName": {
-            "value": "client-vnet"
+            "value": "userws-vnet"
         },
         "addressPrefix": {
             "value": "10.0.0.0/24"
         },
         "virtualNetworkResourceGroup": {
-            "value": "client-rg"
+            "value": "az-305-userws-rg"
         },
         "subnet0Name": {
-            "value": "subnetws"
+            "value": "subnetuserws"
         },
         "subnet0Prefix": {
             "value": "10.0.0.0/24"

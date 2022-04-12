@@ -16,21 +16,21 @@
     },
     "vmNamePrefix": {
       "type": "string",
-      "defaultValue": "clientws",
+      "defaultValue": "userws",
       "metadata": {
         "description": "VM name prefix"
       }
     },
     "pipNamePrefix": {
       "type": "string",
-      "defaultValue": "clientws-pip",
+      "defaultValue": "userws-pip",
       "metadata": {
         "description": "Public IP address name prefix"
       }
     },
     "nicNamePrefix": {
       "type": "string",
-      "defaultValue": "clientws-nic",
+      "defaultValue": "userws-nic",
       "metadata": {
         "description": "Nic name prefix"
       }
@@ -65,7 +65,7 @@
     },
     "virtualNetworkName": {
       "type": "string",
-      "defaultValue": "client-vnet",
+      "defaultValue": "userws-vnet",
       "metadata": {
         "description": "Virtual network name"
       }
@@ -79,14 +79,14 @@
     },
     "virtualNetworkResourceGroup": {
       "type": "string",
-      "defaultValue": "client-rg",
+      "defaultValue": "az-305-userws-rg",
       "metadata": {
         "description": "Resource group of the VNet"
       }
     },
     "subnet0Name": {
       "type": "string",
-      "defaultValue": "subnetws",
+      "defaultValue": "subnetuserws",
       "metadata": {
         "description": "VNet first subnet name"
       }
@@ -100,7 +100,7 @@
     },
     "nsgName": {
       "type": "string",
-      "defaultValue": "clientws-nsg",
+      "defaultValue": "userws-nsg",
       "metadata": {
         "description": "Network security group name"
       }
