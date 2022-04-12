@@ -92,7 +92,7 @@
     },
     "variables": {
         "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets',parameters('virtualNetworkName'),parameters('subnetName'))]",
-		"nsgName": "webnsg",
+		"nsgName": "webnsg01",
         "Linux": {
             "publisher": "[parameters('publisher')]",
             "offer": "[parameters('offer')]",
@@ -161,12 +161,13 @@
                     {
                         "name": "ipconfig",
                         "properties": {
-                            "privateIPAllocationMethod": "Dynamic"
-                            },
                             "subnet": {
                                 "id": "[variables('subnetRef')]"
-                            }
+                            },
+							"privateIPAllocationMethod": "Dynamic"
                         }
+                            
+                    }
                 ],
 				  "networkSecurityGroup": {
                     "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsgName'))]"
