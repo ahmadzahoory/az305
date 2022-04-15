@@ -8,9 +8,6 @@
         "subnetName": {
             "value": "websubnet"
         },
-        "vmName": {
-            "value": "webserver02"
-        },
 		"adminUsername": {
             "value": "master"
         },
