@@ -1,0 +1,53 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualNetworkName": {
+            "value": "vnet-03"
+        },
+        "subnetName": {
+            "value": "websubnet"
+        },
+        "vmName": {
+            "value": "webserver03"
+        },
+		"adminUsername": {
+            "value": "master"
+        },
+        "adminPassword": {
+            "value": "Lab@password"
+        },
+        "numberOfInstances": {
+            "value": 1
+        },
+        "OS": {
+            "value": "Windows"
+        },
+        "vmSizes": {
+            "value": "Standard_D2s_v3"
+        },
+        "osDiskType": {
+            "value": "Premium_LRS"
+        },
+        "publisher": {
+            "value": "MicrosoftWindowsServer"
+        },
+        "offer": {
+            "value": "WindowsServer"
+        },
+        "sku": {
+            "value": "2019-datacenter-gensecond"
+        },
+        "version": {
+            "value": "latest"
+        },
+        "fileUris": {
+            "value": [
+                "https://raw.githubusercontent.com/ahmadzahoory/az305/master/lab-305-03-code-srv3.ps1"
+            ]
+        },
+        "commandToExecute": {
+            "value": "powershell.exe -ExecutionPolicy Unrestricted -File lab-305-03-code-srv3.ps1"
+        }
+    }
+}
