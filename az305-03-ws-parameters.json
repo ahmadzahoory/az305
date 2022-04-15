@@ -24,7 +24,7 @@
             "value": "win10-21h2-pro-g2"
         },
         "vmSize": {
-            "value": "Standard_B2ms"
+            "value": "Standard_D2s_v3"
         },
         "virtualNetworkName": {
             "value": "userws-vnet"
