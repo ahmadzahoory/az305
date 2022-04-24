@@ -21,7 +21,7 @@
             "value": "Windows"
         },
         "vmSizes": {
-            "value": "Standard_D2s_v3"
+            "value": "Standard_D2as_v5"
         },
         "osDiskType": {
             "value": "Premium_LRS"
