@@ -55,7 +55,7 @@
         },
         "vmSizes": {
             "type": "string",
-            "defaultValue": "Standard_D2s_v3",
+            "defaultValue": "Standard_D2as_v5",
             "metadata": {
                 "description": "The type of replication to use for the VM size."
             }
