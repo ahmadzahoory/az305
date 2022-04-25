@@ -93,7 +93,7 @@
     },
     "subnet0Prefix": {
       "type": "string",
-      "defaultValue": "172.31.0.0/244",
+      "defaultValue": "172.31.0.0/24",
       "metadata": {
         "description": "VNet first subnet prefix"
       }
