@@ -179,7 +179,7 @@
         },
         {
             "type": "Microsoft.Compute/virtualMachines",
-            "name": "onp-activedirectory",
+            "name": "onp-adserver",
             "apiVersion": "2021-07-01",
             "location": "[parameters('location')]",
             "copy": {
@@ -194,7 +194,7 @@
                     "vmSize": "[parameters('vmSizes')]"
                 },
                 "osProfile": {
-                    "computerName": "onp-activedirectory",
+                    "computerName": "onp-adserver",
                     "adminUsername": "[parameters('adminUsername')]",
                     "adminPassword": "[parameters('adminPassword')]"
                 },
@@ -215,11 +215,11 @@
             "resources": [
                 {
                     "type": "Microsoft.Compute/virtualMachines/extensions",
-                    "name": "[concat('onp-activedirectory','/customscript')]",
+                    "name": "[concat('onp-adserver','/customscript')]",
                     "apiVersion": "2015-06-15",
                     "location": "[parameters('location')]",
                     "dependsOn": [
-                        "[resourceId('Microsoft.Compute/virtualMachines','onp-activedirectory')]"
+                        "[resourceId('Microsoft.Compute/virtualMachines','onp-adserver')]"
                     ],
                     "properties": {
                         "publisher": "[if(equals(parameters('OS'),'Linux'),'Microsoft.Azure.Extensions','Microsoft.Compute')]",
