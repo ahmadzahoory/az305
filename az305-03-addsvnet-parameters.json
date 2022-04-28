@@ -1,0 +1,24 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "vnetName": {
+        "value": "aadds-vnet"
+      },
+      "vnetAddressPrefix": {
+        "value": "192.168.0.0/23"
+      },
+      "subnets": {
+        "value": [
+          {
+            "name": "aadds-subnet",
+            "addressPrefix": "192.168.0.0/24"
+          },
+		  {
+            "name": "user-subnet",
+            "addressPrefix": "192.168.1.0/24"
+          }
+        ]
+      }
+    }
+  }
