@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
       "vnetName": {
-        "value": "aadds-vnet"
+        "value": "adds-vnet"
       },
       "vnetAddressPrefix": {
         "value": "192.168.0.0/23"
@@ -11,11 +11,11 @@
       "subnets": {
         "value": [
           {
-            "name": "aadds-subnet",
+            "name": "addssubnet",
             "addressPrefix": "192.168.0.0/24"
           },
 		  {
-            "name": "user-subnet",
+            "name": "usersubnet",
             "addressPrefix": "192.168.1.0/24"
           }
         ]
