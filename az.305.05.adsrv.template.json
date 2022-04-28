@@ -66,7 +66,7 @@
         },
 		"nsgName": {
 			"type": "string",
-			"defaultValue": "webnsg1",
+			"defaultValue": "onpnsg",
 			"metadata": {
 				"description": "Network security group name"
 			}
@@ -92,7 +92,7 @@
     },
     "variables": {
         "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets',parameters('virtualNetworkName'),parameters('subnetName'))]",
-		"nsgName": "webnsg1",
+		"nsgName": "onpnsg",
         "Linux": {
             "publisher": "[parameters('publisher')]",
             "offer": "[parameters('offer')]",
@@ -109,6 +109,19 @@
     },
     "resources": [
 		{
+            "name": "[concat('onpadpublicip', copyindex(),guid(parameters('OS')))]",
+            "type": "Microsoft.Network/publicIpAddresses",
+            "apiVersion": "2019-02-01",
+            "location": "[parameters('location')]",
+            "copy": {
+                "name": "publicIpLoop",
+                "count": "[parameters('numberOfInstances')]"
+            },
+            "properties": {
+                "publicIpAllocationMethod": "Dynamic"
+            }
+        },
+		{
         "type": "Microsoft.Network/networkSecurityGroups",
         "name": "[parameters('nsgName')]",
         "apiVersion": "2018-12-01",
@@ -116,22 +129,9 @@
         "properties": {
           "securityRules": [
             {
-              "name": "default-allow-http",
-              "properties": {
-                "priority": 1000,
-                "sourceAddressPrefix": "*",
-                "protocol": "Tcp",
-                "destinationPortRange": "80",
-                "access": "Allow",
-                "direction": "Inbound",
-                "sourcePortRange": "*",
-                "destinationAddressPrefix": "*"
-              }
-            },
-			{
               "name": "default-allow-rdp",
               "properties": {
-                "priority": 2000,
+                "priority": 1000,
                 "sourceAddressPrefix": "*",
                 "protocol": "Tcp",
                 "destinationPortRange": "3389",
@@ -146,7 +146,7 @@
       },       
 	   {
             "type": "Microsoft.Network/networkInterfaces",
-            "name": "[concat('webnic1', copyindex(),guid(parameters('OS')))]",
+            "name": "[concat('onpadnic', copyindex(),guid(parameters('OS')))]",
             "apiVersion": "2020-11-01",
             "location": "[parameters('location')]",
             "dependsOn": [
@@ -164,7 +164,10 @@
                             "subnet": {
                                 "id": "[variables('subnetRef')]"
                             },
-							"privateIPAllocationMethod": "Dynamic"
+							"privateIPAllocationMethod": "Dynamic",
+							"publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', concat('onpadpublicip', copyindex(),guid(parameters('OS'))))]"
+                            }
                         }
                             
                     }
@@ -176,7 +179,7 @@
         },
         {
             "type": "Microsoft.Compute/virtualMachines",
-            "name": "webserver01",
+            "name": "onp-activedirectory",
             "apiVersion": "2021-07-01",
             "location": "[parameters('location')]",
             "copy": {
@@ -191,7 +194,7 @@
                     "vmSize": "[parameters('vmSizes')]"
                 },
                 "osProfile": {
-                    "computerName": "webserver01",
+                    "computerName": "onp-activedirectory",
                     "adminUsername": "[parameters('adminUsername')]",
                     "adminPassword": "[parameters('adminPassword')]"
                 },
@@ -204,7 +207,7 @@
                 "networkProfile": {
                     "networkInterfaces": [
                         {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces',concat('webnic1', copyindex(),guid(parameters('OS'))))]"
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces',concat('onpadnic', copyindex(),guid(parameters('OS'))))]"
                         }
                     ]
                 }
@@ -212,11 +215,11 @@
             "resources": [
                 {
                     "type": "Microsoft.Compute/virtualMachines/extensions",
-                    "name": "[concat('webserver01','/customscript')]",
+                    "name": "[concat('onp-activedirectory','/customscript')]",
                     "apiVersion": "2015-06-15",
                     "location": "[parameters('location')]",
                     "dependsOn": [
-                        "[resourceId('Microsoft.Compute/virtualMachines','webserver01')]"
+                        "[resourceId('Microsoft.Compute/virtualMachines','onp-activedirectory')]"
                     ],
                     "properties": {
                         "publisher": "[if(equals(parameters('OS'),'Linux'),'Microsoft.Azure.Extensions','Microsoft.Compute')]",
