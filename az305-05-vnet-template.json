@@ -1,0 +1,82 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vnetName": {
+      "type": "string",
+      "defaultValue": "VNet1",
+      "metadata": {
+        "description": "VNet name"
+      }
+    },
+    "vnetAddressPrefix": {
+      "type": "string",
+      "defaultValue": "10.0.0.0/16",
+      "metadata": {
+        "description": "Address prefix"
+      }
+    },
+    "subnets": {
+      "type": "array",
+      "defaultValue": [
+        {
+          "name": "Subnet1",
+          "addressPrefix": "10.0.0.0/24"
+        },
+		{
+          "name": "Subnet2",
+          "addressPrefix": "10.0.1.0/24"
+        }
+      ]
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    },
+    "enableServiceEndpoints": {
+      "type": "bool",
+      "defaultValue": false,
+      "metadata": {
+        "description": "Pass this value as true for enabling service endpoints on the vnet."
+      }
+    }
+  },
+  "variables": {
+    "serviceEndpoints": [
+      {
+        "service": "Microsoft.Storage"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "apiVersion": "2020-07-01",
+      "type": "Microsoft.Network/virtualNetworks",
+      "name": "[parameters('vnetName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('vnetAddressPrefix')]"
+          ]
+        },
+        "copy": [
+          {
+            "name": "subnets",
+            "count": "[length(parameters('subnets'))]",
+            "input": {
+              "name": "[parameters('subnets')[copyIndex('subnets')].name]",
+              "properties": {
+                "addressPrefix": "[parameters('subnets')[copyIndex('subnets')].addressPrefix]",
+                "serviceEndpoints": "[if(parameters('enableServiceEndpoints'),variables('serviceEndpoints'),json('null'))]"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
