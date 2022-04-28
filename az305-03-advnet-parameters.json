@@ -1,0 +1,24 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "vnetName": {
+        "value": "onpad-vnet"
+      },
+      "vnetAddressPrefix": {
+        "value": "192.168.0.0/23"
+      },
+      "subnets": {
+        "value": [
+          {
+            "name": "onpadsubnet",
+            "addressPrefix": "192.168.0.0/24"
+          },
+		  {
+            "name": "onpusrsubnet",
+            "addressPrefix": "192.168.1.0/24"
+          }
+        ]
+      }
+    }
+  }
