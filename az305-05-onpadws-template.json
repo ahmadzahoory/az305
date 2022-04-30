@@ -66,7 +66,7 @@
         },
 		"nsgName": {
 			"type": "string",
-			"defaultValue": "onpadnsg",
+			"defaultValue": "onpadwsnsg",
 			"metadata": {
 				"description": "Network security group name"
 			}
@@ -86,7 +86,7 @@
     },
     "variables": {
         "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets',parameters('virtualNetworkName'),parameters('subnetName'))]",
-		"nsgName": "onpadnsg",
+		"nsgName": "onpadwsnsg",
         "Linux": {
             "publisher": "[parameters('publisher')]",
             "offer": "[parameters('offer')]",
@@ -103,7 +103,7 @@
     },
     "resources": [
 		{
-            "name": "[concat('onpadpubip', copyindex(),guid(parameters('OS')))]",
+            "name": "[concat('onpadwspubip', copyindex(),guid(parameters('OS')))]",
             "type": "Microsoft.Network/publicIpAddresses",
             "apiVersion": "2019-02-01",
             "location": "[parameters('location')]",
@@ -160,7 +160,7 @@
                             },
 							"privateIPAllocationMethod": "Dynamic",
 							"publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', concat('onpadpubip', copyindex(),guid(parameters('OS'))))]"
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', concat('onpadwspubip', copyindex(),guid(parameters('OS'))))]"
                             }
                         }
                             
@@ -173,7 +173,7 @@
         },
         {
             "type": "Microsoft.Compute/virtualMachines",
-            "name": "adds-ws",
+            "name": "onpad-ws",
             "apiVersion": "2021-07-01",
             "location": "[parameters('location')]",
             "copy": {
@@ -188,7 +188,7 @@
                     "vmSize": "[parameters('vmSizes')]"
                 },
                 "osProfile": {
-                    "computerName": "adds-ws",
+                    "computerName": "onpad-ws",
                     "adminUsername": "[parameters('adminUsername')]",
                     "adminPassword": "[parameters('adminPassword')]"
                 },
