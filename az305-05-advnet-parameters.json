@@ -6,17 +6,17 @@
         "value": "onpad-vnet"
       },
       "vnetAddressPrefix": {
-        "value": "192.168.0.0/23"
+        "value": "172.16.0.0/23"
       },
       "subnets": {
         "value": [
           {
             "name": "onpadsubnet",
-            "addressPrefix": "192.168.0.0/24"
+            "addressPrefix": "172.16.0.0/24"
           },
 		  {
             "name": "onpusrsubnet",
-            "addressPrefix": "192.168.1.0/24"
+            "addressPrefix": "172.16.1.0/24"
           }
         ]
       }
