@@ -11,16 +11,16 @@
       "subnets": {
         "value": [
         {  
-          "name": "lbsubnet",
-          "addressPrefix": "10.0.0.0/22"
+          "name": "lb-subnet",
+          "addressPrefix": "10.0.0.0/24"
         },
         {
-          "name": "acrsubnet",
+          "name": "acr-subnet",
+          "addressPrefix": "10.0.1.0/24"
+        },
+        {
+          "name": "kubernetes-subnet",
           "addressPrefix": "10.4.0.0/22"
-        },
-        {
-          "name": "kubernetessubnet",
-          "addressPrefix": "10.8.0.0/22"
         }
        ]
       }
