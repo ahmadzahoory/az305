@@ -1,0 +1,28 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "vnetName": {
+        "value": "kubernetes-vnet"
+      },
+      "vnetAddressPrefix": {
+        "value": "10.0.0.0/16"
+      },
+      "subnets": {
+        "value": [
+          
+          "name": "lbsubnet",
+          "addressPrefix": "10.0.0.0/22"
+        },
+        {
+          "name": "acrsubnet",
+          "addressPrefix": "10.4.0.0/22"
+        },
+        {
+          "name": "kubernetessubnet",
+          "addressPrefix": "10.8.0.0/22"
+        }
+       ]
+      }
+    }
+  }
