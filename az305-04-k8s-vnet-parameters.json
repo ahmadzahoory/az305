@@ -10,7 +10,7 @@
       },
       "subnets": {
         "value": [
-          
+        {  
           "name": "lbsubnet",
           "addressPrefix": "10.0.0.0/22"
         },
