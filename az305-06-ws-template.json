@@ -77,18 +77,18 @@
         "description": "Resource group of the VNet"
       }
     },
-    "subnetName": {
+    "subnet2Name": {
       "type": "string",
       "defaultValue": "wssubnet",
       "metadata": {
-        "description": "VNet first subnet name"
+        "description": "VNet third subnet name"
       }
     },
-    "subnetPrefix": {
+    "subnet2Prefix": {
       "type": "string",
       "defaultValue": "192.168.2.0/24",
       "metadata": {
-        "description": "VNet first subnet prefix"
+        "description": "VNet third subnet prefix"
       }
     },
     "nsgName": {
@@ -101,7 +101,7 @@
   },
   "variables": {
     "vnetID": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-    "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnetName'))]",
+    "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnet2Name'))]",
     "numberOfInstances": 1,
     "computeAPIVersion": "2018-10-01",
     "networkAPIVersion": "2018-12-01"
@@ -118,8 +118,8 @@
       },
       "dependsOn": [
         "[resourceId('Microsoft.Network/virtualNetworks/',parameters('virtualNetworkName'))]",
-        "[resourceId('Microsoft.Network/networkSecurityGroups/',parameters('nsgName'))]",
-        "pipLoop"
+        "[resourceId('Microsoft.Network/networkSecurityGroups/',parameters('nsgName'))]"
+
       ],
       "properties": {
         "ipConfigurations": [
@@ -151,9 +151,9 @@
         },
         "subnets": [
           {
-            "name": "[parameters('subnetName')]",
+            "name": "[parameters('subnet2Name')]",
             "properties": {
-              "addressPrefix": "[parameters('subnetPrefix')]"
+              "addressPrefix": "[parameters('subnet2Prefix')]"
             }
           }
         ]
