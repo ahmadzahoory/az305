@@ -35,10 +35,10 @@
         "virtualNetworkResourceGroup": {
             "value": "az-305-06-rg"
         },
-        "subnetName": {
+        "subnet2Name": {
             "value": "wssubnet"
         },
-        "subnetPrefix": {
+        "subnet2Prefix": {
             "value": "192.168.2.0/24"
         }
     }
