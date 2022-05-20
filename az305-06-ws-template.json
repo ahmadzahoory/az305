@@ -101,7 +101,7 @@
   },
   "variables": {
     "vnetID": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-    "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnet0Name'))]",
+    "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnetName'))]",
     "numberOfInstances": 1,
     "computeAPIVersion": "2018-10-01",
     "networkAPIVersion": "2018-12-01"
@@ -153,7 +153,7 @@
           {
             "name": "[parameters('subnetName')]",
             "properties": {
-              "addressPrefix": "[parameters('subnet0Prefix')]"
+              "addressPrefix": "[parameters('subnetPrefix')]"
             }
           }
         ]
