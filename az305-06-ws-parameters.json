@@ -1,45 +1,42 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "virtualNetworkName": {
+            "value": "n-tier_vnet"
+        },
+        "subnetName": {
+            "value": "wssubnet"
+        },
         "adminUsername": {
             "value": "master"
         },
         "adminPassword": {
             "value": "Lab@password"
         },
-        "vmNamePrefix": {
-            "value": "userws"
+        "numberOfInstances": {
+            "value": 1
         },
-        "nicNamePrefix": {
-            "value": "userws-nic"
+        "OS": {
+            "value": "Windows"
         },
-        "imagePublisher": {
+        "vmSizes": {
+            "value": "Standard_D2as_v5"
+        },
+        "osDiskType": {
+            "value": "Premium_LRS"
+        },
+        "publisher": {
             "value": "MicrosoftWindowsDesktop"
         },
-        "imageOffer": {
+        "offer": {
             "value": "Windows-10"
         },
-        "imageSKU": {
+        "sku": {
             "value": "win10-21h2-pro-g2"
         },
-        "vmSize": {
-            "value": "Standard_D2s_v3"
-        },
-        "virtualNetworkName": {
-            "value": "n-tier_vnet"
-        },
-        "addressPrefix": {
-            "value": "192.168.0.0/20"
-        },
-        "virtualNetworkResourceGroup": {
-            "value": "az-305-06-rg"
-        },
-        "subnet2Name": {
-            "value": "wssubnet"
-        },
-        "subnet2Prefix": {
-            "value": "192.168.2.0/24"
+        "version": {
+            "value": "latest"
         }
     }
 }
