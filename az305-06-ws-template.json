@@ -86,7 +86,7 @@
     },
     "variables": {
         "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets',parameters('virtualNetworkName'),parameters('subnetName'))]",
-		"nsgName": "onpadwsnsg",
+		"nsgName": "wsnsg",
         "Linux": {
             "publisher": "[parameters('publisher')]",
             "offer": "[parameters('offer')]",
@@ -110,7 +110,7 @@
         },
 	   {
             "type": "Microsoft.Network/networkInterfaces",
-            "name": "[concat('onpadwsnic', copyindex(),guid(parameters('OS')))]",
+            "name": "[concat('wsnic', copyindex(),guid(parameters('OS')))]",
             "apiVersion": "2020-11-01",
             "location": "[parameters('location')]",
             "dependsOn": [
@@ -167,7 +167,7 @@
                 "networkProfile": {
                     "networkInterfaces": [
                         {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces',concat('onpadwsnic', copyindex(),guid(parameters('OS'))))]"
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces',concat('wsnic', copyindex(),guid(parameters('OS'))))]"
                         }
                     ]
                 }
