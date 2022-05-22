@@ -66,7 +66,7 @@
         },
 		"nsgName": {
 			"type": "string",
-			"defaultValue": "onpadwsnsg",
+			"defaultValue": "wsnsg",
 			"metadata": {
 				"description": "Network security group name"
 			}
