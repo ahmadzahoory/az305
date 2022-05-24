@@ -12,8 +12,12 @@
         "value": [
         {  
           "name": "lb-subnet",
-          "addressPrefix": "10.0.0.0/24"
+          "addressPrefix": "10.0.0.0/25"
         },
+        {  
+          "name": "dev-subnet",
+          "addressPrefix": "10.0.0.128/25"
+        },    
         {
           "name": "acr-subnet",
           "addressPrefix": "10.0.1.0/24"
