@@ -4,7 +4,7 @@
   "parameters": {
     "vnetName": {
       "type": "string",
-      "defaultValue": "inventory_vnet",
+      "defaultValue": "inventory-vnet",
       "metadata": {
         "description": "VNet name"
       }
@@ -28,7 +28,7 @@
             "addressPrefix": "192.168.1.0/24"
           },
 		  {
-            "name": "apisubnet",
+            "name": "apsubnet",
             "addressPrefix": "192.168.2.0/24"
           },
      	          {
@@ -47,7 +47,8 @@
       "metadata": {
         "description": "Location for all resources."
       }
-    },
+    }
+  },
    "resources": [
     {
       "apiVersion": "2020-07-01",
@@ -75,5 +76,4 @@
       }
     }
   ]
- }	  
 }
