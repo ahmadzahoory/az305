@@ -4,14 +4,14 @@
   "parameters": {
     "vnetName": {
       "type": "string",
-      "defaultValue": "inventory_vnet",
+      "defaultValue": "n-tier_vnet",
       "metadata": {
         "description": "VNet name"
       }
     },
     "vnetAddressPrefix": {
       "type": "string",
-      "defaultValue": "192.168.0.0/21",
+      "defaultValue": "192.168.0.0/20",
       "metadata": {
         "description": "Address prefix"
       }
@@ -20,26 +20,37 @@
       "type": "array",
       "defaultValue": [
         {
-            "name": "stgsubnet",
+            "name": "lbsubnet",
             "addressPrefix": "192.168.0.0/24"
           },
 		  {
-            "name": "devsubnet",
+            "name": "azurebastionsubnet",
             "addressPrefix": "192.168.1.0/24"
           },
 		  {
-            "name": "apisubnet",
+            "name": "wssubnet",
             "addressPrefix": "192.168.2.0/24"
           },
      	          {
-            "name": "functionsubnet",
+            "name": "vmsubnet",
             "addressPrefix": "192.168.3.0/24"
           },
 		  {
-            "name": "dbsubnet",
+            "name": "storagesubnet",
             "addressPrefix": "192.168.4.0/24"
-          }
-      
+          },
+	           {
+            "name": "keyvaultsubnet",
+            "addressPrefix": "192.168.5.0/24"
+          },
+	          {
+            "name": "dbcachingsubnet",
+            "addressPrefix": "192.168.6.0/24"
+          },
+		  {
+            "name": "dbsubnet",
+            "addressPrefix": "192.168.7.0/24"
+        }
       ]
     },
     "location": {
