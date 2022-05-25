@@ -4,14 +4,14 @@
   "parameters": {
     "vnetName": {
       "type": "string",
-      "defaultValue": "n-tier_vnet",
+      "defaultValue": "inventory_vnet",
       "metadata": {
         "description": "VNet name"
       }
     },
     "vnetAddressPrefix": {
       "type": "string",
-      "defaultValue": "192.168.0.0/20",
+      "defaultValue": "192.168.0.0/21",
       "metadata": {
         "description": "Address prefix"
       }
@@ -20,37 +20,26 @@
       "type": "array",
       "defaultValue": [
         {
-            "name": "lbsubnet",
+            "name": "stgsubnet",
             "addressPrefix": "192.168.0.0/24"
           },
 		  {
-            "name": "azurebastionsubnet",
+            "name": "devsubnet",
             "addressPrefix": "192.168.1.0/24"
           },
 		  {
-            "name": "wssubnet",
+            "name": "apisubnet",
             "addressPrefix": "192.168.2.0/24"
           },
      	          {
-            "name": "vmsubnet",
+            "name": "functionsubnet",
             "addressPrefix": "192.168.3.0/24"
           },
 		  {
-            "name": "storagesubnet",
-            "addressPrefix": "192.168.4.0/24"
-          },
-	           {
-            "name": "keyvaultsubnet",
-            "addressPrefix": "192.168.5.0/24"
-          },
-	          {
-            "name": "dbcachingsubnet",
-            "addressPrefix": "192.168.6.0/24"
-          },
-		  {
             "name": "dbsubnet",
-            "addressPrefix": "192.168.7.0/24"
-        }
+            "addressPrefix": "192.168.4.0/24"
+          }
+      
       ]
     },
     "location": {
@@ -58,13 +47,6 @@
       "defaultValue": "[resourceGroup().location]",
       "metadata": {
         "description": "Location for all resources."
-      }
-    },
-    "enableServiceEndpoints": {
-      "type": "bool",
-      "defaultValue": false,
-      "metadata": {
-        "description": "Pass this value as true for enabling service endpoints on the vnet."
       }
     }
   },
