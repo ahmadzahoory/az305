@@ -188,7 +188,7 @@
                     "vmSize": "[parameters('vmSizes')]"
                 },
                 "osProfile": {
-                    "computerName": "adds-ws",
+                    "computerName": "userws",
                     "adminUsername": "[parameters('adminUsername')]",
                     "adminPassword": "[parameters('adminPassword')]"
                 },
