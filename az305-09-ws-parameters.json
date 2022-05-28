@@ -1,0 +1,45 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "adminUsername": {
+            "value": "master"
+        },
+        "adminPassword": {
+            "value": "Lab@password"
+        },
+        "vmNamePrefix": {
+            "value": "userws"
+        },
+        "nicNamePrefix": {
+            "value": "userws-nic"
+        },
+        "imagePublisher": {
+            "value": "MicrosoftWindowsDesktop"
+        },
+        "imageOffer": {
+            "value": "Windows-10"
+        },
+        "imageSKU": {
+            "value": "win10-21h2-pro-g2"
+        },
+        "vmSize": {
+            "value": "Standard_D2s_v3"
+        },
+        "virtualNetworkName": {
+            "value": "userws-vnet"
+        },
+        "addressPrefix": {
+            "value": "10.0.0.0/24"
+        },
+        "virtualNetworkResourceGroup": {
+            "value": "az-305-09-rg"
+        },
+        "subnet0Name": {
+            "value": "subnetuserws"
+        },
+        "subnet0Prefix": {
+            "value": "10.0.0.0/24"
+        }
+    }
+}
