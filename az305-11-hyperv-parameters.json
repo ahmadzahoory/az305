@@ -5,10 +5,7 @@
     "_artifactsLocation": {
       "value": "[deployment().properties.templateLink.uri]"
     },
-    "_artifactsLocationSasToken": {
-      "value": null
-    },
-    "location": {
+      "location": {
       "value": "[resourceGroup().location]"
     },
     "virtualNetworkName": {
