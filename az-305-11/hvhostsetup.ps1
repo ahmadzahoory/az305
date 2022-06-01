@@ -47,4 +47,5 @@ Disable-ieESC
 mkdir f:\vhds
 mkdir f:\vms
 
-Invoke-WebRequest  https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019 -OutFile f:\vhds
+cd f:\vhds
+Invoke-WebRequest  https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019
