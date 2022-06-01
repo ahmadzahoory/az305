@@ -20,4 +20,4 @@ $destination.copyHere($zipfile.items())
 New-WebApplication -Name netapp -PhysicalPath c:\inetpub\wwwroot\ec2-website -Site "Default Web Site" -force
 
 # Rename the server
-Rename-Computer -NewName 'image-webserver' -Restart
+Rename-Computer -NewName 'image-websrv' -Restart
