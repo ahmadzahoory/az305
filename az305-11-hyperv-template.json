@@ -9,13 +9,6 @@
     }
   },
   "parameters": {
-    "_artifactsLocation": {
-      "type": "string",
-      "defaultValue": "[deployment().properties.templateLink.uri]",
-      "metadata": {
-        "description": "The base URI where artifacts required by this template are located including a trailing '/'"
-      }
-    },
     "location": {
       "type": "string",
       "defaultValue": "[resourceGroup().location]",
@@ -118,37 +111,11 @@
     "HostVirtualMachineSize": {
       "type": "string",
       "defaultValue": "Standard_D4s_v3",
-      "allowedValues": [
-        "Standard_D2_v3",
-        "Standard_D4_v3",
-        "Standard_D8_v3",
-        "Standard_D16_v3",
-        "Standard_D32_v3",
-        "Standard_D2s_v3",
-        "Standard_D4s_v3",
-        "Standard_D8s_v3",
-        "Standard_D16s_v3",
-        "Standard_D32s_v3",
-        "Standard_D64_v3",
-        "Standard_E2_v3",
-        "Standard_E4_v3",
-        "Standard_E8_v3",
-        "Standard_E16_v3",
-        "Standard_E32_v3",
-        "Standard_E64_v3",
-        "Standard_D64s_v3",
-        "Standard_E2s_v3",
-        "Standard_E4s_v3",
-        "Standard_E8s_v3",
-        "Standard_E16s_v3",
-        "Standard_E32s_v3",
-        "Standard_E64s_v3"
-      ],
       "metadata": {
         "description": "Size of the Host Virtual Machine"
       }
     },
-     "pipNamePrefix": {
+     "pubipName": {
       "type": "string",
       "defaultValue": "hyperv-pip",
       "metadata": {
@@ -170,33 +137,30 @@
   },
   "functions": [],
   "variables": {
+    "pipName": "[format('{0}PIP', parameters('pubipName'))]",
     "NATSubnetNSGName": "[format('{0}NSG', parameters('NATSubnetName'))]",
     "hyperVSubnetNSGName": "[format('{0}NSG', parameters('hyperVSubnetName'))]",
     "ghostedSubnetNSGName": "[format('{0}NSG', parameters('ghostedSubnetName'))]",
     "azureVMsSubnetNSGName": "[format('{0}NSG', parameters('azureVMsSubnetName'))]",
     "azureVMsSubnetUDRName": "[format('{0}UDR', parameters('azureVMsSubnetName'))]",
-    "DSCInstallWindowsFeaturesUri": "[uri(parameters('_artifactsLocation'), format('az-305-07/dscinstallwindowsfeatures.zip{0}', parameters('_artifactsLocation')))]",
-    "HVHostSetupScriptUri": "[uri(parameters('_artifactsLocation'), format('az-305-07/hvhostsetup.ps1{0}', parameters('_artifactsLocation')))]"
+    "DSCInstallWindowsFeaturesUri": "https://raw.githubusercontent.com/ahmadzahoory/az305/master/az-305-11/dscinstallwindowsfeatures.zip",
+    "HVHostSetupScriptUri": "https://raw.githubusercontent.com/ahmadzahoory/az305/master/az-305-11/hvhostsetup.ps1"
   },
   "resources": [
   {
       "type": "Microsoft.Network/publicIpAddresses",
-      "name": "[concat(parameters('pipNamePrefix'), copyindex())]",
-      "apiVersion": "[variables('networkApiVersion')]",
-      "copy": {
-        "name": "pipLoop",
-        "count": "[variables('numberOfInstances')]"
-      },
+      "name": "[variables('pipName')]",
+      "apiVersion": "2021-02-01",
       "location": "[resourceGroup().location]",
       "properties": {
         "publicIpAllocationMethod": "Dynamic"
       }
     },
     {
-      "type": "Microsoft.Network/networkSecurityGroups",
-      "apiVersion": "2021-02-01",
-      "name": "[variables('NATSubnetNSGName')]",
-      "location": "[parameters('location')]",
+     "type": "Microsoft.Network/networkSecurityGroups",
+     "name": "[variables('NATSubnetNSGName')]",
+     "apiVersion": "2021-02-01",
+     "location": "[resourceGroup().location]",
      "properties": {
         "securityRules": [
           {
@@ -210,12 +174,12 @@
             "direction": "Inbound",
             "sourcePortRange": "*",
             "destinationAddressPrefix": "*"
-         }
-       }
-      ]
-     }
-    },
-    {
+              }
+            }
+          ]
+        }
+      },       
+     {
       "type": "Microsoft.Network/networkSecurityGroups",
       "apiVersion": "2021-02-01",
       "name": "[variables('hyperVSubnetNSGName')]",
