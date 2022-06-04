@@ -51,9 +51,9 @@ Set-ExecutionPolicy Unrestricted -Force
 New-Item -ItemType directory -Path 'C:\temp'
 Set-Location -Path C:\temp
 $shell_app = new-object -com shell.application
-(New-Object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/ahmadzahoory/az305/master/az-305-11-script_webserver.ps1", (Get-Location).Path + "\az-305-11-script_webserver.ps1")
-Rename-Item -Path "c:\temp\az-305-11-script_webserver.ps1" -NewName "script-webserver.ps1"
+(New-Object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/ahmadzahoory/az305/master/az-305-08-script_webserver.ps1", (Get-Location).Path + "\az-305-08-script_webserver.ps1")
+Rename-Item -Path "c:\temp\az-305-08-script_webserver.ps1" -NewName "script-webserver.ps1"
 
 $shell_app = new-object -com shell.application
-(New-Object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/ahmadzahoory/az305/master/az-305-11-azuremigrate-hyperv.ps1", (Get-Location).Path + "\az-305-11-azuremigrate-hyperv.ps1")
-Rename-Item -Path "c:\temp\az-305-11-azuremigrate-hyperv.ps1" -NewName "azuremigrate-hyperv.ps1"
+(New-Object System.Net.WebClient).DownloadFile("https://raw.githubusercontent.com/ahmadzahoory/az305/master/az-305-08-azuremigrate-hyperv.ps1", (Get-Location).Path + "\az-305-08-azuremigrate-hyperv.ps1")
+Rename-Item -Path "c:\temp\az-305-08-azuremigrate-hyperv.ps1" -NewName "azuremigrate-hyperv.ps1"
