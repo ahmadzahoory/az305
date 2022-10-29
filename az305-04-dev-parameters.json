@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"adminUsername": {
+			"value": "master"
+		},
+		"adminPassword": {
+			"value": "Lab@password"
+		},
+		"vmNamePrefix": {
+			"value": "docker-dev"
+		},
+		"nicNamePrefix": {
+			"value": "dockerdev-nic"
+		},
+		"imagePublisher": {
+			"value": "Canonical"
+		},
+		"imageOffer": {
+			"value": "UbuntuServer"
+		},
+		"imageSKU": {
+			"value": "18.04-LTS"
+		},
+		"vmSize": {
+			"value": "Standard_D2as_v5"
+		},
+		"virtualNetworkName": {
+			"value": "dockerdev-vnet"
+		},
+		"addressPrefix": {
+			"value": "172.16.0.0/24"
+		},
+		"virtualNetworkResourceGroup": {
+			"value": "az-305-04-rg3"
+		},
+		"subnet0Name": {
+			"value": "dockerdev-subnet"
+		},
+		"subnet0Prefix": {
+			"value": "172.16.0.0/24"
+		}
+	}
+}
